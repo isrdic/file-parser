@@ -1,4 +1,4 @@
-package com.control4.fileparser;
+package com.control4.fileparser.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,7 +13,7 @@ import java.util.Objects;
 @AllArgsConstructor
 public class WordResponse implements Comparable<WordResponse> {
 
-    private int numberOfOccur;
+    private Long numberOfOccur;
     private String word;
 
     @Override
@@ -39,6 +39,6 @@ public class WordResponse implements Comparable<WordResponse> {
 
     @Override
     public int compareTo(WordResponse o) {
-        return Integer.compare(o.numberOfOccur, this.numberOfOccur);
+        return Long.compare(o.numberOfOccur, this.numberOfOccur);
     }
 }

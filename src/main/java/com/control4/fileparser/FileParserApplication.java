@@ -1,23 +1,28 @@
 package com.control4.fileparser;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import com.control4.fileparser.dto.Type;
+import com.control4.fileparser.util.FileParserUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import java.io.File;
 import java.io.IOException;
+import java.util.Arrays;
 
 @SpringBootApplication
-public class FileParserApplication { //extends SpringBootServletInitializer
+public class FileParserApplication {
+
+    static Logger LOGGER = LoggerFactory.getLogger(FileParserApplication.class);
 
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(FileParserApplication.class, args);
-        FileBean fileBean = context.getBean(FileBean.class);
+        FileParserUtil fileParserUtil = context.getBean(FileParserUtil.class);
         try {
-            fileBean.printTop50ArrayList();
+            fileParserUtil.engine(null, Type.TreeSet);
         } catch (IOException e) {
-            e.printStackTrace();
+            LOGGER.error("Error with parsing file" + Arrays.toString(e.getStackTrace()));
         }
     }
 

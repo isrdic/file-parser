@@ -1,0 +1,126 @@
+{
+	"info": {
+		"_postman_id": "9291cdff-55c6-4836-b0b6-6ea6e1afd85a",
+		"name": "file-parser",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "top 50 occuring words ArrayList upload",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/HP/IdeaProjects/FileParser/data/TextFile.txt"
+						},
+						{
+							"key": "type",
+							"value": "ArrayList",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/api/print",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"print"
+					],
+					"query": [
+						{
+							"key": "file",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "top 50 occuring words TreeSet upload",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/HP/IdeaProjects/FileParser/data/TextFile.txt"
+						},
+						{
+							"key": "type",
+							"value": "TreeSet",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/api/print",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"print"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "top 50 occuring words ArrayList",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "ArrayList",
+							"type": "text"
+						}
+					]
+				},
+				"url": null
+			},
+			"response": []
+		},
+		{
+			"name": "top 50 occuring words TreeSet",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": null
+			},
+			"response": []
+		}
+	]
+}
