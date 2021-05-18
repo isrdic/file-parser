@@ -1,6 +1,5 @@
-package com.control4.fileparser;
+package com.control4.fileparser.exception;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
