@@ -1,19 +1,19 @@
 ## Thinking process steps and some code snippets
 
-####1. Import file
+#### 1. Import file
 
 ```java
 @Value("classpath:data/resourcedata.txt")
 Resource file;
 ```
 
-####2. Read from file
+#### 2. Read from file
 
 ```java
 new String(Files.readAllBytes(file.getFile().toPath()))
 ```
 
-####3. Create array of word from String
+#### 3. Create array of word from String
 
 ```java
 String[] resourceStringArray = Arrays.stream(
@@ -25,7 +25,7 @@ String[] resourceStringArray = Arrays.stream(
         .toArray(String[]::new);
 ```
 
-####4. Iterate over array and count words, print and return results
+#### 4. Iterate over array and count words, print and return results
 
 - Two approaches here, two methods for doing this
 ~~~java
