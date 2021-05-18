@@ -1,5 +1,6 @@
 package com.control4.fileparser.util;
 
+import com.control4.fileparser.WrongParsingTypeException;
 import com.control4.fileparser.dto.Type;
 import com.control4.fileparser.dto.WordResponse;
 import org.springframework.beans.factory.annotation.Value;
@@ -7,7 +8,6 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.nio.file.DirectoryNotEmptyException;
 import java.nio.file.Files;
 import java.util.*;
 
@@ -19,17 +19,17 @@ public class FileParserUtil {
 
     public List<WordResponse> engine(String resourceString, Type type) throws IOException {
         String[] resourceStringArray = (resourceString == null) ?
-                getStringArrayFromFile(new String(Files.readAllBytes(file.getFile().toPath()))) :
-                getStringArrayFromFile(resourceString);
+                getStringArrayFromString(new String(Files.readAllBytes(file.getFile().toPath()))) :
+                getStringArrayFromString(resourceString);
         if (type.equals(Type.ArrayList)) {
             return printAndReturnTop50ArrayList(resourceStringArray);
         } else if (type.equals(Type.TreeSet)) {
             return printAndReturnTop50TreeSet(resourceStringArray);
         }
-        throw new DirectoryNotEmptyException("");
+        throw new WrongParsingTypeException("Wrong parsing type");
     }
 
-    public String[] getStringArrayFromFile(String resourceString) {
+    public String[] getStringArrayFromString(String resourceString) {
         String[] resourceStringArray = Arrays.stream(
                 resourceString
                         .replaceAll("[^a-zA-Z0-9\\s+]", "")
