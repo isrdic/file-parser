@@ -1,6 +1,6 @@
 package com.control4.fileparser.util;
 
-import com.control4.fileparser.WrongParsingTypeException;
+import com.control4.fileparser.exception.WrongParsingTypeException;
 import com.control4.fileparser.dto.Type;
 import com.control4.fileparser.dto.WordResponse;
 import org.springframework.beans.factory.annotation.Value;
